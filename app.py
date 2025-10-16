@@ -9,7 +9,7 @@ st.write("Upload an image to detect vitamin deficiency")
 # Load model
 model = None
 try:
-    model = load_model("model.h5")  # ensure model.h5 is in repo
+    model = load_model("skin_model.h5")  # ensure model.h5 is in repo
     st.success("Model loaded successfully!")
 except:
     st.warning("No model found. Upload model.h5 in repo or via uploader.")
@@ -26,3 +26,4 @@ if uploaded_file is not None and model is not None:
     class_names = ["Vitamin A","Vitamin B","Vitamin B12","Vitamin C","Vitamin D","Vitamin Zinc","Vitamin D3","Other"]
     predicted_class = class_names[np.argmax(prediction[0])]
     st.success(f"Prediction: {predicted_class}")
+
